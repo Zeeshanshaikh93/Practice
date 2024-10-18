@@ -1,6 +1,8 @@
 FROM python:3.12.7-alpine
 LABEL author="zeeshan" organization="lt"
 COPY . /app
+USER nobody
+COPY --chown=nobody . /app
 WORKDIR /app
 EXPOSE 8000
 RUN pip3 install -r requirements.txt
